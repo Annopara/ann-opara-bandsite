@@ -1,0 +1,49 @@
+@use "./typography" as *;
+
+// Font Family
+$font-family: "AvenirNext LT Pro";
+
+// Primary Colors
+$bandsite-black: #323232;
+$bandsite-silver: #afafaf;
+$bandsite-white: #fff;
+
+// Secondary Colors
+$bandsite-dark-black: #000;
+$bandsite-mercury: #e1e1e1;
+$bandsite-alabaster: #fafafa;
+
+// Padding - Desktop
+$before-headlines-desktop: 48px;
+$after-btween-headlines-desktop: 36px;
+// Padding - Mobile
+$before-headlines-desktop: 24px;
+$after-btween-headlines-desktop: 16px;
+
+// Button - Desktop
+$button-width-desktop: 150px;
+$button-padding-desktop: 32px;
+// Button - Mobile
+$button-width-mobile: 100%;
+
+// Font size
+
+// Desktop
+$h1-desktop: 60px;
+$h2-desktop: 36px;
+$h3-desktop: 24px;
+$body-desktop: 14px;
+$label-btn-desktop: 12px;
+// Mobile
+$h1-mobile: 24px;
+$h3-mobile: 14px;
+$body-mobile: 13px;
+$label-lineheight-mobile: 10px;
+
+// Line Height
+$h1-lineheight-desktop: 68px;
+$h2-lineheight-desktop: 44px;
+$h3-lineheight-desktop: 32px;
+$body-lineheight-desktop: 22px;
+$footer-lineheight-desktop: 20px;
+$label-lineheight-desktop: 12px;

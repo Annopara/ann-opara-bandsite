@@ -1,0 +1,14 @@
+@use "./variables" as *;
+@use "./typography" as *;
+
+// Bandsite Logo
+@mixin logo {
+  line-height: 20px;
+  letter-spacing: 120px;
+}
+
+@mixin ctaButton {
+  height: 40px;
+  border-radius: 4px;
+  @content;
+}
