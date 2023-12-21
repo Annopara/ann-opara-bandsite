@@ -53,75 +53,57 @@ body {
   }
 }
 
-// .header__item--active {
-//   border-bottom: 1px solid pink;
-//   width: 50%;
-//   padding-left: 0;
-// }
+// FOOTER
 
-// .header {
-//   width: 100%;
-//   background-color: $bandsite-black;
+.footer {
+  height: 100vh;
+  background-color: $bandsite-black;
+  color: $bandsite-white;
+  padding: 16px;
 
-//   &__nav {
-//     // @include flex;
-//     // flex-direction: column;
-//     // justify-content: space-between;
-//     // align-items: center;
-//     // height: 5rem;
-//     // padding: 16px;
-//     color: $bandsite-white;
-//   }
+  &__slogan {
+    margin: 2rem 0;
+    font-size: $h2-desktop;
+  }
 
-//   &__ul {
-//     @include flex;
-//     justify-content: space-between;
-//     align-items: flex-end;
-//     width: 100%;
-//     list-style: none;
-//   }
+  &__socials {
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+  }
 
-//   &__logo {
-//     color: $bandsite-white;
-//     text-decoration: none;
-//     letter-spacing: 0.2rem;
-//     margin: 0 auto;
-//     width: fit-content;
-//     display: block;
-//   }
+  &__icon {
+    height: 32px;
+  }
+}
 
-//   &__item {
-//     text-decoration: none;
-//     color: $bandsite-silver;
-//     padding: 16px;
+// FOOTER SERVICES
 
-//     &--active {
-//       color: $bandsite-white;
-//       border-bottom: 2px solid $bandsite-white;
-//     }
-//   }
-// }
+.services {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-// // FOOTER
+  &__section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20vh;
+  }
 
-// .footer {
-//   height: 80vh;
-//   background-color: $bandsite-black;
-//   color: $bandsite-white;
-//   padding: 16px;
+  &__title {
+    font-weight: 700;
+    margin-top: 1rem;
+  }
 
-//   &__slogan {
-//     margin: 2rem 0;
-//     font-size: $h2-desktop;
-//   }
+  &__address {
+    font-weight: normal;
+  }
 
-//   &__socials {
-//     display: flex;
-//     width: 27%;
-//     justify-content: space-between;
-//   }
-
-//   &__icon {
-//     height: 32px;
-//   }
-// }
+  &__email {
+    text-decoration: none;
+    color: $bandsite-white;
+    display: block;
+    margin-bottom: 1.2rem;
+  }
+}

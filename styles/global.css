@@ -59,4 +59,48 @@ body {
 .header__item--active {
   border-bottom: 1px solid #fff;
   width: 50%;
+}
+
+.footer {
+  height: 100vh;
+  background-color: #323232;
+  color: #fff;
+  padding: 16px;
+}
+.footer__slogan {
+  margin: 2rem 0;
+  font-size: 36px;
+}
+.footer__socials {
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+}
+.footer__icon {
+  height: 32px;
+}
+
+.services {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.services__section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 20vh;
+}
+.services__title {
+  font-weight: 700;
+  margin-top: 1rem;
+}
+.services__address {
+  font-weight: normal;
+}
+.services__email {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  margin-bottom: 1.2rem;
 }/*# sourceMappingURL=global.css.map */
