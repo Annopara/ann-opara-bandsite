@@ -1,0 +1,127 @@
+@use "./partials/variables" as *;
+@use "./partials/mixins" as *;
+@use "./partials/typography" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "AvenirNext LT Pro";
+}
+
+// HEADER
+
+.header {
+  background: $bandsite-black;
+  padding-top: 0.5rem;
+
+  &__logo {
+    color: $bandsite-white;
+    text-decoration: none;
+    margin: 0 auto;
+    display: block;
+    width: fit-content;
+  }
+
+  &__ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    padding-left: 0;
+  }
+
+  &__item {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 1rem;
+
+    &--active {
+      border-bottom: 1px solid $bandsite-white;
+      width: 50%;
+      // padding-left: 0;
+    }
+  }
+}
+
+// .header__item--active {
+//   border-bottom: 1px solid pink;
+//   width: 50%;
+//   padding-left: 0;
+// }
+
+// .header {
+//   width: 100%;
+//   background-color: $bandsite-black;
+
+//   &__nav {
+//     // @include flex;
+//     // flex-direction: column;
+//     // justify-content: space-between;
+//     // align-items: center;
+//     // height: 5rem;
+//     // padding: 16px;
+//     color: $bandsite-white;
+//   }
+
+//   &__ul {
+//     @include flex;
+//     justify-content: space-between;
+//     align-items: flex-end;
+//     width: 100%;
+//     list-style: none;
+//   }
+
+//   &__logo {
+//     color: $bandsite-white;
+//     text-decoration: none;
+//     letter-spacing: 0.2rem;
+//     margin: 0 auto;
+//     width: fit-content;
+//     display: block;
+//   }
+
+//   &__item {
+//     text-decoration: none;
+//     color: $bandsite-silver;
+//     padding: 16px;
+
+//     &--active {
+//       color: $bandsite-white;
+//       border-bottom: 2px solid $bandsite-white;
+//     }
+//   }
+// }
+
+// // FOOTER
+
+// .footer {
+//   height: 80vh;
+//   background-color: $bandsite-black;
+//   color: $bandsite-white;
+//   padding: 16px;
+
+//   &__slogan {
+//     margin: 2rem 0;
+//     font-size: $h2-desktop;
+//   }
+
+//   &__socials {
+//     display: flex;
+//     width: 27%;
+//     justify-content: space-between;
+//   }
+
+//   &__icon {
+//     height: 32px;
+//   }
+// }
