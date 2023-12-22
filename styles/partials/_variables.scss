@@ -1,7 +1,7 @@
-@use "./typography" as *;
+@use "../partials/typography.scss" as *;
 
 // Font Family
-$font-family: "AvenirNext LT Pro";
+$font-family: "AvenirNext";
 
 // Primary Colors
 $bandsite-black: #323232;
