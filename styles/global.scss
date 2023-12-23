@@ -24,7 +24,7 @@ body {
 
 .header {
   background: $bandsite-black;
-  padding-top: 0.5rem;
+  padding-top: 1rem;
 
   &__logo {
     color: $bandsite-white;
@@ -34,26 +34,35 @@ body {
     width: fit-content;
   }
 
+  &__img {
+    width: 120px;
+  }
+
   &__ul {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     list-style: none;
     padding-left: 0;
   }
 
   &__item {
-    color: white;
+    color: $bandsite-white;
     text-decoration: none;
     display: block;
-    padding: 1rem 2rem;
-    font-size: 1rem;
-    font-weight: 600;
+    padding: 0.7rem 4rem;
+    font-size: 0.8rem;
     margin: 0 auto;
 
+    &--inactive {
+      color: $bandsite-silver;
+    }
+
     &--active {
-      border-bottom: 1px solid $bandsite-white;
+      border-bottom: 2px solid $bandsite-white;
       width: 50%;
+      font-weight: 600;
+      color: $bandsite-white;
     }
   }
 }
@@ -93,17 +102,20 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    font-size: 0.8rem;
   }
 
   &__title {
     font-weight: 600;
     padding-bottom: 1rem;
-    font-size: $h3-mobile;
+
+    line-height: 22px;
   }
 
   &__address {
     font-weight: normal;
-    font-size: $h3-mobile;
+
+    line-height: 22px;
   }
 
   &__email {
@@ -111,7 +123,6 @@ body {
     color: $bandsite-white;
     display: block;
     padding: 1rem 0;
-    font-size: $body-mobile;
 
     &--padding {
       padding-bottom: 2rem;

@@ -1,0 +1,102 @@
+// HERO SECTION
+@use "../styles/partials/variables" as *;
+
+.hero {
+  height: 39vh;
+  position: relative;
+
+  &__background {
+    background-image: url("../assets/Images/hero-bio.jpg");
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+
+  &___background::before {
+    content: "";
+    background: rgba(50, 51, 50, 0.5);
+    z-index: 2;
+  }
+
+  &__heading {
+    padding: 19vh 1rem;
+    color: $bandsite-white;
+    letter-spacing: 0.5px;
+    font-size: 30px;
+    font-weight: 700;
+  }
+}
+
+// ABOUT SECTION
+.about-us {
+  padding: 24px 1rem;
+
+  &__title {
+    font-weight: 600;
+    padding-bottom: 1rem;
+    color: $bandsite-black;
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  &__quote {
+    padding: 1rem 0;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.2rem;
+    color: $bandsite-black;
+  }
+
+  &__cite {
+    font-style: normal;
+    display: block;
+    padding-top: 0.5rem;
+    line-height: 1.2rem;
+  }
+}
+
+// HISTORY SECTION
+
+.history {
+  padding: 0 1rem;
+  color: $bandsite-black;
+
+  &__title {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  &__text {
+    padding: 0.5rem 0;
+    line-height: 1.3rem;
+    font-size: 0.9rem;
+  }
+
+  &__text-bottom {
+    padding-bottom: 1.2rem;
+  }
+}
+
+// PHOTO GALLERY
+
+.gallery {
+  padding: 1rem;
+  color: $bandsite-black;
+  background-color: $bandsite-alabaster;
+
+  &__title {
+    padding: 0.2rem 0;
+    font-weight: 600;
+  }
+
+  &__div {
+    margin: 0.5rem 0;
+  }
+
+  &__img {
+    width: 100%;
+  }
+}

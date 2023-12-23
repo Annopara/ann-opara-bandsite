@@ -1,0 +1,99 @@
+@font-face {
+  font-family: "AvenirNext";
+  src: url("../../assets/Font/AvenirNextLTPro-Regular.woff2") format("woff2"), url("../../assets/Font/AvenirNextLTPro-Regular.woff") format("woff"), url("../../assets/Font/AvenirNextLTPro-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "AvenirNext";
+  src: url("../../assets/Font/AvenirNextLTPro-Bold.woff2") format("woff2"), url("../../assets/Font/AvenirNextLTPro-Bold.woff") format("woff"), url("../../assets/Font/AvenirNextLTPro-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "AvenirNext";
+  src: url("../../assets/Font/AvenirNextLTPro-Demi.woff2") format("woff2"), url("../../assets/Font/AvenirNextLTPro-Demi.woff") format("woff"), url("../../assets/Font/AvenirNextLTPro-Demi.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+.hero {
+  height: 39vh;
+  position: relative;
+}
+.hero__background {
+  background-image: url("../assets/Images/hero-bio.jpg");
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+.hero___background::before {
+  content: "";
+  background: rgba(50, 51, 50, 0.5);
+  z-index: 2;
+}
+.hero__heading {
+  padding: 19vh 1rem;
+  color: #fff;
+  letter-spacing: 0.5px;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.about-us {
+  padding: 24px 1rem;
+}
+.about-us__title {
+  font-weight: 600;
+  padding-bottom: 1rem;
+  color: #323232;
+}
+.about-us__img {
+  width: 100%;
+}
+.about-us__quote {
+  padding: 1rem 0;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  color: #323232;
+}
+.about-us__cite {
+  font-style: normal;
+  display: block;
+  padding-top: 0.5rem;
+  line-height: 1.2rem;
+}
+
+.history {
+  padding: 0 1rem;
+  color: #323232;
+}
+.history__title {
+  font-weight: 600;
+  font-size: 1rem;
+}
+.history__text {
+  padding: 0.5rem 0;
+  line-height: 1.3rem;
+  font-size: 0.9rem;
+}
+.history__text-bottom {
+  padding-bottom: 1.2rem;
+}
+
+.gallery {
+  padding: 1rem;
+  color: #323232;
+  background-color: #fafafa;
+}
+.gallery__title {
+  padding: 0.2rem 0;
+  font-weight: 600;
+}
+.gallery__div {
+  margin: 0.5rem 0;
+}
+.gallery__img {
+  width: 100%;
+}/*# sourceMappingURL=bio.css.map */
