@@ -27,10 +27,6 @@
   margin: 0;
 }
 
-html {
-  font-size: 125%;
-}
-
 body {
   font-family: "AvenirNext";
 }
@@ -39,16 +35,27 @@ body {
   background: #323232;
   padding-top: 1rem;
 }
+@media (min-width: 768px) {
+  .header {
+    padding: 0;
+  }
+}
 .header__logo {
   color: #fff;
   text-decoration: none;
   margin: 0 auto;
   display: block;
-  width: -moz-fit-content;
-  width: fit-content;
 }
 .header__img {
   width: 120px;
+}
+@media (min-width: 768px) {
+  .header__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+  }
 }
 .header__ul {
   display: flex;
@@ -57,22 +64,44 @@ body {
   list-style: none;
   padding-left: 0;
 }
+@media (min-width: 768px) {
+  .header__ul {
+    justify-content: space-between;
+    align-items: center;
+  }
+}
 .header__item {
   color: #fff;
   text-decoration: none;
   display: block;
-  padding: 0.7rem 4rem;
+  padding: 0.7rem 12rem;
   font-size: 0.8rem;
   margin: 0 auto;
 }
+@media (min-width: 768px) {
+  .header__item {
+    padding: 1.5rem 0.3rem;
+    font-size: 1rem;
+  }
+}
 .header__item--inactive {
   color: #afafaf;
+}
+@media (min-width: 768px) {
+  .header__item--inactive {
+    margin: 0 2rem;
+  }
 }
 .header__item--active {
   border-bottom: 2px solid #fff;
   width: 50%;
   font-weight: 600;
   color: #fff;
+}
+@media (min-width: 768px) {
+  .header__item--active {
+    border-bottom: 4px solid #fff;
+  }
 }
 
 .footer {

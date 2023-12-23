@@ -47,9 +47,12 @@
   font-weight: 600;
   padding-bottom: 1rem;
   color: #323232;
+  font-size: 24px;
 }
 .about-us__img {
   width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .about-us__quote {
   padding: 1rem 0;

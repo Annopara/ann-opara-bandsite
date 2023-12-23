@@ -12,9 +12,16 @@
   margin: 0;
 }
 
-html {
-  font-size: 125%;
-}
+// html {
+//   font-size: 125%;
+//   @include tablet {
+//     font-size: 150%;
+//   }
+
+//   @include desktop {
+//     font-size: 175%;
+//   }
+// }
 
 body {
   font-family: $font-family;
@@ -26,16 +33,30 @@ body {
   background: $bandsite-black;
   padding-top: 1rem;
 
+  @include tablet {
+    padding: 0;
+  }
+
   &__logo {
     color: $bandsite-white;
     text-decoration: none;
     margin: 0 auto;
     display: block;
-    width: fit-content;
+    // width: fit-content;
   }
 
   &__img {
     width: 120px;
+  }
+
+  &__nav {
+    @include tablet {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 50%; //36px
+      // height: 5vh;
+    }
   }
 
   &__ul {
@@ -44,18 +65,31 @@ body {
     align-items: center;
     list-style: none;
     padding-left: 0;
+
+    @include tablet {
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 
   &__item {
     color: $bandsite-white;
     text-decoration: none;
     display: block;
-    padding: 0.7rem 4rem;
+    padding: 0.7rem 12rem;
     font-size: 0.8rem;
     margin: 0 auto;
 
+    @include tablet {
+      padding: 1.5rem 0.3rem;
+      font-size: 1rem;
+    }
+
     &--inactive {
       color: $bandsite-silver;
+      @include tablet {
+        margin: 0 2rem;
+      }
     }
 
     &--active {
@@ -63,6 +97,10 @@ body {
       width: 50%;
       font-weight: 600;
       color: $bandsite-white;
+
+      @include tablet {
+        border-bottom: 4px solid $bandsite-white;
+      }
     }
   }
 }
