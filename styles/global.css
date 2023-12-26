@@ -45,6 +45,8 @@ body {
   text-decoration: none;
   margin: 0 auto;
   display: block;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 .header__img {
   width: 120px;
@@ -74,7 +76,7 @@ body {
   color: #fff;
   text-decoration: none;
   display: block;
-  padding: 0.7rem 12rem;
+  padding: 0.7rem 10rem;
   font-size: 0.8rem;
   margin: 0 auto;
 }
@@ -91,10 +93,17 @@ body {
   .header__item--inactive {
     margin: 0 2rem;
   }
+  .header__item--inactive:hover {
+    border-bottom: 2px solid #e1e1e1;
+  }
+}
+@media (min-width: 768px) and (min-width: 768px) {
+  .header__item--inactive:hover {
+    border-bottom: 4px solid #fff;
+  }
 }
 .header__item--active {
-  border-bottom: 2px solid #fff;
-  width: 50%;
+  border-bottom: 2px solid #e1e1e1;
   font-weight: 600;
   color: #fff;
 }
@@ -109,15 +118,32 @@ body {
   color: #fff;
   padding: 24px 1rem;
 }
+@media (min-width: 768px) {
+  .footer {
+    padding: 32px;
+  }
+}
 .footer__slogan {
   font-size: 24px;
   font-weight: 600;
+}
+@media (min-width: 768px) {
+  .footer__slogan {
+    font-size: 36px;
+  }
 }
 .footer__socials {
   display: flex;
   width: 38%;
   justify-content: space-between;
   padding: 1rem 0;
+}
+@media (min-width: 768px) {
+  .footer__socials {
+    justify-content: space-around;
+    padding-right: 15rem;
+    width: 50%;
+  }
 }
 .footer__icon {
   height: 24px;
@@ -126,6 +152,15 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+@media (min-width: 768px) {
+  .footer__services {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 84%;
+  }
 }
 .footer__section {
   display: flex;
@@ -151,7 +186,33 @@ body {
 .footer__email--padding {
   padding-bottom: 2rem;
 }
+@media (min-width: 768px) {
+  .footer__email--padding {
+    padding: 1rem 0;
+  }
+}
 .footer__copyright {
   padding-top: 0.4rem;
   font-size: 13px;
+}
+@media (min-width: 768px) {
+  .footer__mobile {
+    display: none;
+  }
+}
+.footer__tablet {
+  display: none;
+}
+@media (min-width: 768px) {
+  .footer__tablet {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+.footer__subheader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 32px;
 }/*# sourceMappingURL=global.css.map */

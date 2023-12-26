@@ -12,17 +12,6 @@
   margin: 0;
 }
 
-// html {
-//   font-size: 125%;
-//   @include tablet {
-//     font-size: 150%;
-//   }
-
-//   @include desktop {
-//     font-size: 175%;
-//   }
-// }
-
 body {
   font-family: $font-family;
 }
@@ -42,7 +31,7 @@ body {
     text-decoration: none;
     margin: 0 auto;
     display: block;
-    // width: fit-content;
+    width: fit-content;
   }
 
   &__img {
@@ -76,7 +65,7 @@ body {
     color: $bandsite-white;
     text-decoration: none;
     display: block;
-    padding: 0.7rem 12rem;
+    padding: 0.7rem 10rem;
     font-size: 0.8rem;
     margin: 0 auto;
 
@@ -89,12 +78,19 @@ body {
       color: $bandsite-silver;
       @include tablet {
         margin: 0 2rem;
+
+        &:hover {
+          border-bottom: 2px solid $bandsite-mercury;
+          @include tablet {
+            border-bottom: 4px solid $bandsite-white;
+          }
+        }
       }
     }
 
     &--active {
-      border-bottom: 2px solid $bandsite-white;
-      width: 50%;
+      border-bottom: 2px solid $bandsite-mercury;
+      // width: 50%;
       font-weight: 600;
       color: $bandsite-white;
 
@@ -112,9 +108,17 @@ body {
   color: $bandsite-white;
   padding: 24px 1rem;
 
+  @include tablet {
+    padding: 32px;
+  }
+
   &__slogan {
     font-size: $h1-mobile;
     font-weight: 600;
+
+    @include tablet {
+      font-size: $h2-desktop;
+    }
   }
 
   &__socials {
@@ -122,6 +126,12 @@ body {
     width: 38%;
     justify-content: space-between;
     padding: 1rem 0;
+
+    @include tablet {
+      justify-content: space-around;
+      padding-right: 15rem;
+      width: 50%;
+    }
   }
 
   &__icon {
@@ -134,6 +144,14 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 84%;
+    }
   }
 
   &__section {
@@ -164,11 +182,38 @@ body {
 
     &--padding {
       padding-bottom: 2rem;
+
+      @include tablet {
+        padding: 1rem 0;
+      }
     }
   }
 
   &__copyright {
     padding-top: 0.4rem;
     font-size: $body-mobile;
+  }
+
+  &__mobile {
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__tablet {
+    display: none;
+
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+
+  &__subheader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 32px;
   }
 }

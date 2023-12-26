@@ -18,36 +18,73 @@
 }
 .hero {
   height: 39vh;
-  position: relative;
+}
+@media (min-width: 768px) {
+  .hero {
+    height: 50vh;
+  }
 }
 .hero__background {
+  position: relative;
   background-image: url("../assets/Images/hero-bio.jpg");
   height: 100%;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-size: cover;
   background-position: center;
 }
 .hero___background::before {
   content: "";
   background: rgba(50, 51, 50, 0.5);
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
   z-index: 2;
 }
 .hero__heading {
-  padding: 19vh 1rem;
+  padding: 19.5vh 1rem;
   color: #fff;
   letter-spacing: 0.5px;
-  font-size: 30px;
+  font-size: 32px;
   font-weight: 700;
+}
+@media (min-width: 768px) {
+  .hero__heading {
+    font-size: 60px;
+    padding: 25vh 0 25vh 36px;
+    padding-left: 36px;
+    letter-spacing: 1.25px;
+  }
 }
 
 .about-us {
   padding: 24px 1rem;
+}
+@media (min-width: 768px) {
+  .about-us {
+    padding: 36px;
+  }
 }
 .about-us__title {
   font-weight: 600;
   padding-bottom: 1rem;
   color: #323232;
   font-size: 24px;
+}
+@media (min-width: 768px) {
+  .about-us__title {
+    font-size: 48px;
+    padding-bottom: 1.2rem;
+  }
+}
+@media (min-width: 768px) {
+  .about-us__img-div {
+    padding: 0 24px;
+  }
 }
 .about-us__img {
   width: 100%;
@@ -61,25 +98,63 @@
   line-height: 1.2rem;
   color: #323232;
 }
+@media (min-width: 768px) {
+  .about-us__quote {
+    padding: 24px;
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
 .about-us__cite {
   font-style: normal;
   display: block;
   padding-top: 0.5rem;
   line-height: 1.2rem;
 }
+@media (min-width: 768px) {
+  .about-us__cite {
+    padding-top: 1.1rem;
+  }
+}
 
 .history {
   padding: 0 1rem;
   color: #323232;
 }
+@media (min-width: 768px) {
+  .history {
+    padding: 24px 60px;
+  }
+}
+@media (min-width: 768px) {
+  .history__container {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+  }
+}
 .history__title {
   font-weight: 600;
   font-size: 1rem;
+}
+@media (min-width: 768px) {
+  .history__title {
+    font-size: 1.7rem;
+    padding-bottom: 1.2rem;
+    font-weight: 700;
+  }
 }
 .history__text {
   padding: 0.5rem 0;
   line-height: 1.3rem;
   font-size: 0.9rem;
+}
+@media (min-width: 768px) {
+  .history__text {
+    width: 47%;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+  }
 }
 .history__text-bottom {
   padding-bottom: 1.2rem;
@@ -90,12 +165,37 @@
   color: #323232;
   background-color: #fafafa;
 }
+@media (min-width: 768px) {
+  .gallery {
+    padding: 36px;
+  }
+}
 .gallery__title {
   padding: 0.2rem 0;
   font-weight: 600;
 }
+@media (min-width: 768px) {
+  .gallery__title {
+    padding: 1rem 0;
+    font-size: 40px;
+  }
+}
+@media (min-width: 768px) {
+  .gallery__section {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
 .gallery__div {
   margin: 0.5rem 0;
+}
+@media (min-width: 768px) {
+  .gallery__div {
+    width: 33.33%;
+    padding: 0.5rem;
+    margin: 0;
+  }
 }
 .gallery__img {
   width: 100%;

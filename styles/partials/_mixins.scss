@@ -18,6 +18,42 @@
   }
 }
 
+@mixin heading1 {
+  font-size: $h1-desktop;
+  line-height: 68px;
+  font-weight: 700;
+}
+
+@mixin heading2 {
+  font-size: $h2-desktop;
+  line-height: 44px;
+  font-family: 700;
+}
+
+@mixin subheader {
+  font-size: $subheader-desktop;
+  line-height: $lineheight-3;
+  font-weight: 600;
+}
+
+@mixin bodytext {
+  font-size: $body-1;
+  line-height: $lineheight-2;
+  font-weight: 600;
+}
+
+@mixin footertext {
+  font-size: $body-1;
+  font-weight: 400;
+  line-height: $lineheight-3;
+}
+
+@mixin label-Btn {
+  font-size: $labels;
+  line-height: $lineheight-3;
+  font-weight: 700;
+}
+
 @mixin desktop {
   @media (min-width: 1024px) {
     @content;

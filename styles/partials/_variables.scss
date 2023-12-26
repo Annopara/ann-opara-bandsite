@@ -13,39 +13,29 @@ $bandsite-dark-black: #000;
 $bandsite-mercury: #e1e1e1;
 $bandsite-alabaster: #fafafa;
 
-// Padding - Desktop
-$before-headlines-desktop: 48px;
-$after-btween-headlines-desktop: 36px;
-// Padding - Mobile
-$before-headlines-desktop: 24px;
-$after-btween-headlines-desktop: 16px;
-
-// Button - Desktop
-$button-width-desktop: 150px;
-$button-padding-desktop: 32px;
-// Button - Mobile
-$button-width-mobile: 100%;
+// PADDING
+$padding-1: 48px;
+$padding-2: 36px;
+$padding-3: 36px;
+$padding-4: 24px;
+$padding-5: 16px;
 
 // Font size
 
-// Desktop
+// Desktop/Tablet
 $h1-desktop: 60px;
 $h2-desktop: 36px;
-$h3-desktop: 24px;
-$body-desktop: 14px;
-$label-btn-desktop: 12px;
+$subheader-desktop: 24px;
+$body-1: 14px;
+$labels: 12px;
 // Mobile
 $h1-mobile: 24px;
 $h3-mobile: 14px;
 $body-mobile: 13px;
-$label-lineheight-mobile: 10px;
+$label-text: 10px;
 
 // Line Height
-$h1-lineheight-desktop: 68px;
-$h2-lineheight-desktop: 44px;
-$h3-lineheight-desktop: 32px;
-$body-lineheight-desktop: 22px;
-$footer-lineheight-desktop: 20px;
-$label-lineheight-desktop: 12px;
-
-// PADDING
+$lineheight-1: 32px;
+$lineheight-2: 22px;
+$lineheight-3: 20px;
+$lineheight-4: 18px;
