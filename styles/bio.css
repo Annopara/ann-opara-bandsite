@@ -26,27 +26,17 @@
 }
 .hero__background {
   position: relative;
-  background-image: url("../assets/Images/hero-bio.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/Images/hero-bio.jpg");
   height: 100%;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   background-size: cover;
   background-position: center;
 }
-.hero___background::before {
-  content: "";
-  background: rgba(50, 51, 50, 0.5);
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-  z-index: 2;
-}
 .hero__heading {
-  padding: 19.5vh 1rem;
+  padding: 20% 1rem;
   color: #fff;
   letter-spacing: 0.5px;
   font-size: 32px;
@@ -55,7 +45,7 @@
 @media (min-width: 768px) {
   .hero__heading {
     font-size: 60px;
-    padding: 25vh 0 25vh 36px;
+    padding: 20% 36px;
     padding-left: 36px;
     letter-spacing: 1.25px;
   }
@@ -147,7 +137,7 @@
 .history__text {
   padding: 0.5rem 0;
   line-height: 1.3rem;
-  font-size: 0.9rem;
+  font-size: 14px;
 }
 @media (min-width: 768px) {
   .history__text {
@@ -188,7 +178,7 @@
   }
 }
 .gallery__div {
-  margin: 0.5rem 0;
+  margin: 1rem 0;
 }
 @media (min-width: 768px) {
   .gallery__div {

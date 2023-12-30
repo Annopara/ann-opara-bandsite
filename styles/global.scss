@@ -20,200 +20,121 @@ body {
 
 .header {
   background: $bandsite-black;
-  padding-top: 1rem;
+  // padding: 0 1rem;
 
-  @include tablet {
-    padding: 0;
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // width: 100%;
   }
 
   &__logo {
-    color: $bandsite-white;
     text-decoration: none;
-    margin: 0 auto;
-    display: block;
-    width: fit-content;
+    margin: 1rem auto;
   }
 
   &__img {
     width: 120px;
+    height: 20px;
+    object-fit: cover;
   }
 
-  &__nav {
-    @include tablet {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 50%; //36px
-      // height: 5vh;
-    }
-  }
-
-  &__ul {
+  &__nav-links {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-    list-style: none;
-    padding-left: 0;
-
-    @include tablet {
-      justify-content: space-between;
-      align-items: center;
-    }
+    width: 100%;
   }
 
-  &__item {
-    color: $bandsite-white;
+  &__link {
+    align-items: center;
+    width: 50%;
+    text-align: center;
+    color: $bandsite-silver;
     text-decoration: none;
-    display: block;
-    padding: 0.7rem 10rem;
-    font-size: 0.8rem;
-    margin: 0 auto;
+    padding-bottom: 1rem;
+    font-weight: 600;
+    transition: 0.5s ease;
 
-    @include tablet {
-      padding: 1.5rem 0.3rem;
-      font-size: 1rem;
-    }
-
-    &--inactive {
-      color: $bandsite-silver;
-      @include tablet {
-        margin: 0 2rem;
-
-        &:hover {
-          border-bottom: 2px solid $bandsite-mercury;
-          @include tablet {
-            border-bottom: 4px solid $bandsite-white;
-          }
-        }
-      }
+    &:hover {
+      border-bottom: 4px solid $bandsite-white;
+      color: $bandsite-white;
+      cursor: pointer;
     }
 
     &--active {
-      border-bottom: 2px solid $bandsite-mercury;
-      // width: 50%;
-      font-weight: 600;
+      border-bottom: 4px solid $bandsite-white;
       color: $bandsite-white;
-
-      @include tablet {
-        border-bottom: 4px solid $bandsite-white;
-      }
     }
   }
-}
 
-// FOOTER
+  &__link:hover,
+  &:active {
+    border-bottom: 4px solid $bandsite-white;
+    color: $bandsite-white;
+    font-weight: 700;
+  }
+}
 
 .footer {
   background-color: $bandsite-black;
   color: $bandsite-white;
-  padding: 24px 1rem;
+  padding: 32px 1rem;
 
-  @include tablet {
-    padding: 32px;
-  }
-
-  &__slogan {
-    font-size: $h1-mobile;
-    font-weight: 600;
-
-    @include tablet {
-      font-size: $h2-desktop;
-    }
+  &__heading {
+    font-size: 1.5rem;
+    padding: 1rem 0;
   }
 
   &__socials {
     display: flex;
-    width: 38%;
     justify-content: space-between;
-    padding: 1rem 0;
-
-    @include tablet {
-      justify-content: space-around;
-      padding-right: 15rem;
-      width: 50%;
-    }
+    width: 40%;
+    padding: 0.5rem 0;
   }
 
   &__icon {
-    height: 24px;
+    width: 100%;
   }
 
-  // Footer Services
+  // FOOTER SERVICES
 
   &__services {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    @include tablet {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      width: 84%;
-    }
-  }
-
-  &__section {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    font-size: 0.8rem;
+    padding: 1.5rem 0;
+    font-size: 1rem;
   }
 
   &__title {
     font-weight: 600;
-    padding-bottom: 1rem;
+    line-height: 0.5;
+  }
 
-    line-height: 22px;
+  &__text {
+    display: block;
+    padding: 1rem 0;
   }
 
   &__address {
-    font-weight: normal;
+    margin: 0.6rem 0;
+    line-height: 1.5;
+  }
 
-    line-height: 22px;
+  &__span {
+    display: block;
   }
 
   &__email {
     text-decoration: none;
     color: $bandsite-white;
-    display: block;
-    padding: 1rem 0;
+  }
 
-    &--padding {
-      padding-bottom: 2rem;
-
-      @include tablet {
-        padding: 1rem 0;
-      }
-    }
+  &__logo {
+    padding: 4rem 0 0.7rem 0;
   }
 
   &__copyright {
-    padding-top: 0.4rem;
-    font-size: $body-mobile;
-  }
-
-  &__mobile {
-    @include tablet {
-      display: none;
-    }
-  }
-
-  &__tablet {
-    display: none;
-
-    @include tablet {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-  }
-
-  &__subheader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-right: 32px;
+    font-size: 14px;
   }
 }
