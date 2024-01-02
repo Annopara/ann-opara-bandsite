@@ -20,14 +20,31 @@ body {
 
 .header {
   background: $bandsite-black;
-  // padding: 0 1rem;
+
+  @include tablet {
+    padding: 0 2.25rem;
+  }
+
+  &__desktop {
+    @include desktop {
+      width: 40%;
+    }
+  }
 
   &__nav {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    // width: 100%;
+
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-between;
+      width: 50%;
+    }
+    @include desktop {
+      margin: 0 auto;
+    }
   }
 
   &__logo {
@@ -36,8 +53,8 @@ body {
   }
 
   &__img {
-    width: 120px;
-    height: 20px;
+    width: 7.5rem;
+    height: 1.25rem;
     object-fit: cover;
   }
 
@@ -46,53 +63,112 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+
+    @include tablet {
+      justify-content: space-evenly;
+    }
+
+    @include desktop {
+      padding: 0 2rem;
+    }
   }
 
   &__link {
-    align-items: center;
     width: 50%;
     text-align: center;
     color: $bandsite-silver;
     text-decoration: none;
     padding-bottom: 1rem;
-    font-weight: 600;
-    transition: 0.5s ease;
+    font-weight: normal;
+    font-size: $h3-mobile;
 
     &:hover {
-      border-bottom: 4px solid $bandsite-white;
+      border-bottom: 2px solid $bandsite-white;
       color: $bandsite-white;
       cursor: pointer;
     }
 
+    @include tablet {
+      width: fit-content;
+      padding: 2rem 0;
+      font-size: 1rem;
+    }
+
+    @include desktop {
+      width: 100%;
+      margin: 0 1rem;
+    }
+
     &--active {
-      border-bottom: 4px solid $bandsite-white;
+      border-bottom: 2px solid $bandsite-mercury;
       color: $bandsite-white;
+      font-weight: 600;
     }
   }
-
-  &__link:hover,
-  &:active {
-    border-bottom: 4px solid $bandsite-white;
-    color: $bandsite-white;
-    font-weight: 700;
-  }
 }
+
+// FOOTER SECTION
 
 .footer {
   background-color: $bandsite-black;
   color: $bandsite-white;
-  padding: 32px 1rem;
+  padding: 2rem 1rem;
+
+  @include tablet {
+    padding: 2rem 2.2rem;
+  }
+
+  @include desktop {
+    padding: 3rem 2.2rem;
+  }
+
+  &__desktop {
+    @include desktop {
+      width: 78%;
+      margin: 0 auto;
+    }
+  }
+
+  &__div {
+    @include tablet {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__container {
+    @include tablet {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 60%;
+    }
+
+    @include desktop {
+      width: 39%;
+    }
+  }
 
   &__heading {
-    font-size: 1.5rem;
-    padding: 1rem 0;
+    font-size: $h1-mobile;
+    padding-bottom: 1rem;
+    font-weight: 700;
   }
 
   &__socials {
     display: flex;
     justify-content: space-between;
     width: 40%;
-    padding: 0.5rem 0;
+    padding-bottom: 1rem;
+
+    @include tablet {
+      width: 50%;
+      justify-content: space-between;
+    }
+
+    @include desktop {
+      width: 30%;
+    }
   }
 
   &__icon {
@@ -101,24 +177,60 @@ body {
 
   // FOOTER SERVICES
 
+  &__services-container {
+    @include tablet {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    @include desktop {
+      width: 79%;
+    }
+  }
+
   &__services {
-    padding: 1.5rem 0;
+    padding: 1rem 0;
     font-size: 1rem;
+
+    @include tablet {
+      padding: 1rem 0;
+    }
+
+    &-first {
+      @include tablet {
+        padding-top: 0;
+      }
+    }
+
+    &-middle {
+      @include tablet {
+        padding: 0 1rem;
+      }
+    }
   }
 
   &__title {
     font-weight: 600;
     line-height: 0.5;
+    font-size: $h3-mobile;
+
+    @include tablet {
+      line-height: 1;
+    }
   }
 
   &__text {
     display: block;
-    padding: 1rem 0;
+    padding: 0.8rem 0;
+    width: 100%;
   }
 
   &__address {
     margin: 0.6rem 0;
     line-height: 1.5;
+    font-size: $body-mobile;
   }
 
   &__span {
@@ -128,13 +240,26 @@ body {
   &__email {
     text-decoration: none;
     color: $bandsite-white;
+    font-size: $h3-mobile;
   }
 
   &__logo {
     padding: 4rem 0 0.7rem 0;
+
+    @include tablet {
+      padding: 0.1rem 0 0 0;
+    }
+  }
+
+  &__img {
+    width: 75px;
   }
 
   &__copyright {
-    font-size: 14px;
+    font-size: $body-mobile;
+
+    @include tablet {
+      margin-top: 1rem;
+    }
   }
 }

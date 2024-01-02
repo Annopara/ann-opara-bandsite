@@ -34,19 +34,41 @@ body {
 .header {
   background: #323232;
 }
+@media (min-width: 768px) {
+  .header {
+    padding: 0 2.25rem;
+  }
+}
+@media (min-width: 1280px) {
+  .header__desktop {
+    width: 40%;
+  }
+}
 .header__nav {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+@media (min-width: 768px) {
+  .header__nav {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+  }
+}
+@media (min-width: 1280px) {
+  .header__nav {
+    margin: 0 auto;
+  }
+}
 .header__logo {
   text-decoration: none;
   margin: 1rem auto;
 }
 .header__img {
-  width: 120px;
-  height: 20px;
+  width: 7.5rem;
+  height: 1.25rem;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -56,64 +78,166 @@ body {
   align-items: center;
   width: 100%;
 }
+@media (min-width: 768px) {
+  .header__nav-links {
+    justify-content: space-evenly;
+  }
+}
+@media (min-width: 1280px) {
+  .header__nav-links {
+    padding: 0 2rem;
+  }
+}
 .header__link {
-  align-items: center;
   width: 50%;
   text-align: center;
   color: #afafaf;
   text-decoration: none;
   padding-bottom: 1rem;
-  font-weight: 600;
-  transition: 0.5s ease;
+  font-weight: normal;
+  font-size: 0.875rem;
 }
 .header__link:hover {
-  border-bottom: 4px solid #fff;
+  border-bottom: 2px solid #fff;
   color: #fff;
   cursor: pointer;
 }
-.header__link--active {
-  border-bottom: 4px solid #fff;
-  color: #fff;
+@media (min-width: 768px) {
+  .header__link {
+    width: -moz-fit-content;
+    width: fit-content;
+    padding: 2rem 0;
+    font-size: 1rem;
+  }
 }
-.header__link:hover, .header:active {
-  border-bottom: 4px solid #fff;
+@media (min-width: 1280px) {
+  .header__link {
+    width: 100%;
+    margin: 0 1rem;
+  }
+}
+.header__link--active {
+  border-bottom: 2px solid #e1e1e1;
   color: #fff;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .footer {
   background-color: #323232;
   color: #fff;
-  padding: 32px 1rem;
+  padding: 2rem 1rem;
+}
+@media (min-width: 768px) {
+  .footer {
+    padding: 2rem 2.2rem;
+  }
+}
+@media (min-width: 1280px) {
+  .footer {
+    padding: 3rem 2.2rem;
+  }
+}
+@media (min-width: 1280px) {
+  .footer__desktop {
+    width: 78%;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 768px) {
+  .footer__div {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+@media (min-width: 768px) {
+  .footer__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+  }
+}
+@media (min-width: 1280px) {
+  .footer__container {
+    width: 39%;
+  }
 }
 .footer__heading {
   font-size: 1.5rem;
-  padding: 1rem 0;
+  padding-bottom: 1rem;
+  font-weight: 700;
 }
 .footer__socials {
   display: flex;
   justify-content: space-between;
   width: 40%;
-  padding: 0.5rem 0;
+  padding-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  .footer__socials {
+    width: 50%;
+    justify-content: space-between;
+  }
+}
+@media (min-width: 1280px) {
+  .footer__socials {
+    width: 30%;
+  }
 }
 .footer__icon {
   width: 100%;
 }
+@media (min-width: 768px) {
+  .footer__services-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+}
+@media (min-width: 1280px) {
+  .footer__services-container {
+    width: 79%;
+  }
+}
 .footer__services {
-  padding: 1.5rem 0;
+  padding: 1rem 0;
   font-size: 1rem;
+}
+@media (min-width: 768px) {
+  .footer__services {
+    padding: 1rem 0;
+  }
+}
+@media (min-width: 768px) {
+  .footer__services-first {
+    padding-top: 0;
+  }
+}
+@media (min-width: 768px) {
+  .footer__services-middle {
+    padding: 0 1rem;
+  }
 }
 .footer__title {
   font-weight: 600;
   line-height: 0.5;
+  font-size: 0.875rem;
+}
+@media (min-width: 768px) {
+  .footer__title {
+    line-height: 1;
+  }
 }
 .footer__text {
   display: block;
-  padding: 1rem 0;
+  padding: 0.8rem 0;
+  width: 100%;
 }
 .footer__address {
   margin: 0.6rem 0;
   line-height: 1.5;
+  font-size: 0.8125rem;
 }
 .footer__span {
   display: block;
@@ -121,10 +245,24 @@ body {
 .footer__email {
   text-decoration: none;
   color: #fff;
+  font-size: 0.875rem;
 }
 .footer__logo {
   padding: 4rem 0 0.7rem 0;
 }
+@media (min-width: 768px) {
+  .footer__logo {
+    padding: 0.1rem 0 0 0;
+  }
+}
+.footer__img {
+  width: 75px;
+}
 .footer__copyright {
-  font-size: 14px;
+  font-size: 0.8125rem;
+}
+@media (min-width: 768px) {
+  .footer__copyright {
+    margin-top: 1rem;
+  }
 }/*# sourceMappingURL=global.css.map */
