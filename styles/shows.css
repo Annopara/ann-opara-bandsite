@@ -1,0 +1,147 @@
+@font-face {
+  font-family: "AvenirNext";
+  src: url("../../assets/Font/AvenirNextLTPro-Regular.woff2") format("woff2"), url("../../assets/Font/AvenirNextLTPro-Regular.woff") format("woff"), url("../../assets/Font/AvenirNextLTPro-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "AvenirNext";
+  src: url("../../assets/Font/AvenirNextLTPro-Bold.woff2") format("woff2"), url("../../assets/Font/AvenirNextLTPro-Bold.woff") format("woff"), url("../../assets/Font/AvenirNextLTPro-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "AvenirNext";
+  src: url("../../assets/Font/AvenirNextLTPro-Demi.woff2") format("woff2"), url("../../assets/Font/AvenirNextLTPro-Demi.woff") format("woff"), url("../../assets/Font/AvenirNextLTPro-Demi.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+.shows {
+  height: 39vh;
+}
+@media (min-width: 768px) {
+  .shows {
+    height: 50vh;
+  }
+}
+@media (min-width: 1280px) {
+  .shows__desktop {
+    width: 78%;
+    margin: 0 auto;
+  }
+}
+.shows__background {
+  position: relative;
+  background: linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)), url("../assets/Images/Mohan-muruge.jpg");
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+}
+@media (min-width: 1280px) {
+  .shows__background {
+    margin: 0 auto;
+  }
+}
+.shows__subheader {
+  color: #fff;
+  padding: 0 1rem;
+  margin: 5rem 0;
+}
+@media (min-width: 768px) {
+  .shows__subheader {
+    padding: 0 36px;
+  }
+}
+.shows__heading {
+  padding: 0 1rem;
+  color: #fff;
+  letter-spacing: 0.5px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  width: 65%;
+}
+@media (min-width: 768px) {
+  .shows__heading {
+    font-size: 3.75rem;
+    padding: 0 2.25rem;
+    letter-spacing: 1.25px;
+    width: 85%;
+  }
+}
+@media (min-width: 1280px) {
+  .shows__heading {
+    padding: 0 1rem;
+  }
+}
+
+.tickets {
+  padding: 3rem 0;
+}
+@media (min-width: 768px) {
+  .tickets {
+    padding: 3rem;
+  }
+}
+.tickets__header {
+  padding: 1rem;
+}
+.tickets__container {
+  padding: 1rem 0;
+  border-bottom: 1px solid gray;
+}
+@media (min-width: 768px) {
+  .tickets__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.tickets__card {
+  padding: 0.7rem 1rem;
+}
+.tickets__subheader {
+  font-size: 14px;
+  font-weight: 700;
+  color: rgb(183, 180, 180);
+  padding-bottom: 0.4rem;
+}
+@media (min-width: 768px) {
+  .tickets__subheader {
+    padding-bottom: 1.5rem;
+  }
+}
+.tickets__text {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+@media (min-width: 768px) {
+  .tickets__text {
+    font-size: 1rem;
+  }
+}
+.tickets__btn {
+  margin: 0.7rem 1rem;
+  padding: 1rem;
+  width: 100%;
+  text-align: center;
+  font-weight: 700;
+  border-radius: 5px;
+  background-color: #323232;
+  color: #fff;
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+}
+@media (min-width: 768px) {
+  .tickets__btn {
+    font-size: 1rem;
+    margin: 0;
+    padding: 0.6rem;
+    width: 25%;
+    margin-top: auto;
+  }
+}/*# sourceMappingURL=shows.css.map */
