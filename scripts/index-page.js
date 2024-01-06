@@ -1,4 +1,4 @@
-// You must have an array in JavaScript with 3 default comment objects to start. Comments must have a name, a timestamp, and the comment text.
+// // You must have an array in JavaScript with 3 default comment objects to start. Comments must have a name, a timestamp, and the comment text.
 
 const userComments = [
   {
@@ -25,7 +25,7 @@ const userComments = [
 const userCommentParent = document.querySelector(".post");
 
 //  2. function form\
-const createCommentEl = (item) => {
+const createCommentEl = (item, container) => {
   // 3.  Create img div
   const imgDivEl = document.createElement("div");
   imgDivEl.classList.add("post__img");
@@ -69,6 +69,8 @@ const createCommentEl = (item) => {
   postContainerEl.appendChild(sectionContainer);
 
   userCommentParent.appendChild(postContainerEl);
+
+  // container.appendChild(userComments);
 };
 
 userComments.forEach((team) => {
@@ -87,11 +89,13 @@ userForm.addEventListener("submit", (e) => {
 
   const newComment = {
     userName: e.target.username.value,
-    date: e.target.date.value,
+    date: "now",
     userComment: e.target.comment.value,
   };
 
   userComments.unshift(newComment);
+
+  e.target.reset();
 
   createCommentEl(newComment);
 });
