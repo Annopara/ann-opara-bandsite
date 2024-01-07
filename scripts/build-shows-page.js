@@ -39,10 +39,13 @@ const ticketObject = [
 // 1. bring in the gateway
 
 //  2. TICKET CARD COMPONENTS
-const CreateTicketEl = (subheader, text) => {
+const CreateTicketEl = (subheader, text, hideSubheader) => {
   const pSubheaderEL = document.createElement("p");
   pSubheaderEL.classList.add("tickets__subheader");
   pSubheaderEL.innerText = subheader;
+  if (!hideSubheader) {
+    pSubheaderEL.classList.add("tickets__subheader--hidden");
+  }
 
   const pTicketTextEl = document.createElement("p");
   pTicketTextEl.classList.add("tickets__text");
@@ -60,21 +63,38 @@ const CreateTicketEl = (subheader, text) => {
 
 const appendToParentContainer = () => {
   const ticketParentContainer = document.querySelector(".tickets");
-  ticketObject.forEach((item) => {
-    ticketParentContainer.appendChild(CreateTicketEl("DATE", item.date));
+  ticketObject.forEach((item, index) => {
+    const hideSubheader = index === 0;
 
-    ticketParentContainer.appendChild(CreateTicketEl("VENUE", item.venue));
+    // Ticket container for card
+    const cardContainerEl = document.createElement("div");
+    cardContainerEl.classList.add("tickets__container");
 
-    ticketParentContainer.appendChild(
-      CreateTicketEl("LOCATION", item.location)
-    );
+    cardContainerEl.appendChild(CreateTicketEl("DATE", item.date));
+
+    cardContainerEl.appendChild(CreateTicketEl("VENUE", item.venue));
+
+    cardContainerEl.appendChild(CreateTicketEl("LOCATION", item.location));
 
     // Create a ticket Btn and append
     const ticketBtn = document.createElement("button");
     ticketBtn.classList.add("tickets__btn");
     ticketBtn.innerText = "BUY TICKETS";
 
-    ticketParentContainer.appendChild(ticketBtn);
+    cardContainerEl.appendChild(ticketBtn);
+
+    ticketParentContainer.appendChild(cardContainerEl);
+
+    // if (hideSubheader != index[0]) {
+    //   pSubheaderEL.classList.add("tickets__subheader--hidden");
+    // }
+
+    // Create a ticket Btn and append
+    // const ticketBtn = document.createElement("button");
+    // ticketBtn.classList.add("tickets__btn");
+    // ticketBtn.innerText = "BUY TICKETS";
+
+    // ticketParentContainer.appendChild(ticketBtn);
 
     // if (
     //   ticketObject.name !== item.name[0] &&

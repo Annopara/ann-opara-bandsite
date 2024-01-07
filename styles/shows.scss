@@ -78,11 +78,13 @@
   }
 
   &__container {
+    display: flex;
+    flex-direction: column;
     padding: 1rem 0;
     border-bottom: 1px solid gray;
 
     @include tablet {
-      display: flex;
+      flex-direction: row;
       justify-content: space-between;
       align-items: center;
     }
@@ -101,6 +103,12 @@
     @include tablet {
       padding-bottom: 1.5rem;
     }
+
+    &--hidden {
+      @include tablet {
+        display: none;
+      }
+    }
   }
 
   &__text {
@@ -109,6 +117,7 @@
 
     @include tablet {
       font-size: 1rem;
+      text-align: left;
     }
   }
 

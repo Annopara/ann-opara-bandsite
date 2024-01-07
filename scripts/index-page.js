@@ -68,28 +68,39 @@ const createCommentEl = (item, container) => {
   postContainerEl.appendChild(imgContainerEl);
   postContainerEl.appendChild(sectionContainer);
 
-  userCommentParent.appendChild(postContainerEl);
-
-  // container.appendChild(userComments);
+  container.appendChild(postContainerEl);
 };
 
-userComments.forEach((team) => {
-  createCommentEl(team);
+const commentList = (usersArray) => {
+  userCommentParent.innerHTML = "";
+
+  usersArray.forEach((item) => {
+    createCommentEl(item, userCommentParent);
+  });
+};
+
+userComments.forEach((item) => {
+  createCommentEl(item, userCommentParent);
 });
 
-// FORM ELEMENT
+// Current Date function
+function getCurrentDate() {
+  const today = new Date();
+  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const day = String(today.getDate()).padStart(2, "0");
+  const year = today.getFullYear();
+  return `${month}/${day}/${year}`;
+}
 
+// FORM ELEMENT
 const userForm = document.querySelector(".form__right");
 
 userForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  console.log(e.target.username.value);
-  console.log(e.target.comment.value);
-
   const newComment = {
     userName: e.target.username.value,
-    date: "now",
+    date: getCurrentDate(),
     userComment: e.target.comment.value,
   };
 
@@ -97,5 +108,5 @@ userForm.addEventListener("submit", (e) => {
 
   e.target.reset();
 
-  createCommentEl(newComment);
+  commentList(userComments);
 });
