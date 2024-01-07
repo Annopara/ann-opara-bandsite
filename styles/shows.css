@@ -57,6 +57,11 @@
     padding: 0 36px;
   }
 }
+@media (min-width: 1280px) {
+  .shows__subheader {
+    padding: 0 1rem;
+  }
+}
 .shows__heading {
   padding: 0 1rem;
   color: #fff;
@@ -87,6 +92,13 @@
     padding: 3rem;
   }
 }
+@media (min-width: 1280px) {
+  .tickets {
+    width: 78%;
+    margin: 0 auto;
+    padding: 3rem 0;
+  }
+}
 .tickets__header {
   padding: 1rem;
 }
@@ -95,6 +107,13 @@
   flex-direction: column;
   padding: 1rem 0;
   border-bottom: 1px solid gray;
+}
+.tickets__container:hover {
+  background-color: lightgray;
+}
+.tickets__container--active {
+  background-color: gray;
+  padding: 1rem;
 }
 @media (min-width: 768px) {
   .tickets__container {
@@ -135,7 +154,6 @@
 .tickets__btn {
   margin: 0.7rem 1rem;
   padding: 1rem;
-  width: 100%;
   text-align: center;
   font-weight: 700;
   border-radius: 5px;

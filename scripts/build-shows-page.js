@@ -36,14 +36,12 @@ const ticketObject = [
   },
 ];
 
-// 1. bring in the gateway
-
-//  2. TICKET CARD COMPONENTS
+//  1. TICKET CARD COMPONENTS
 const CreateTicketEl = (subheader, text, hideSubheader) => {
   const pSubheaderEL = document.createElement("p");
   pSubheaderEL.classList.add("tickets__subheader");
   pSubheaderEL.innerText = subheader;
-  if (!hideSubheader) {
+  if (hideSubheader) {
     pSubheaderEL.classList.add("tickets__subheader--hidden");
   }
 
@@ -56,27 +54,45 @@ const CreateTicketEl = (subheader, text, hideSubheader) => {
   divContainerEl.appendChild(pSubheaderEL);
   divContainerEl.appendChild(pTicketTextEl);
 
+  //2.  Event Listener on Container
+  divContainerEl.addEventListener("click", () => {
+    const activeTicketEls = document.querySelectorAll(
+      ".teams__team-row--active"
+    );
+    activeTicketEls.forEach((team) => {
+      team.classList.remove("teams__team-row--active");
+    });
+
+    divContainerEl.classList.add("teams__team-row--active");
+  });
+
   return divContainerEl;
 };
 
-// Appending to the parent container
+// 3. Appending to the parent container
 
 const appendToParentContainer = () => {
   const ticketParentContainer = document.querySelector(".tickets");
   ticketObject.forEach((item, index) => {
-    const hideSubheader = index === 0;
+    const hideSubheader = index !== 0;
 
     // Ticket container for card
     const cardContainerEl = document.createElement("div");
     cardContainerEl.classList.add("tickets__container");
 
-    cardContainerEl.appendChild(CreateTicketEl("DATE", item.date));
+    cardContainerEl.appendChild(
+      CreateTicketEl("DATE", item.date, hideSubheader)
+    );
 
-    cardContainerEl.appendChild(CreateTicketEl("VENUE", item.venue));
+    cardContainerEl.appendChild(
+      CreateTicketEl("VENUE", item.venue, hideSubheader)
+    );
 
-    cardContainerEl.appendChild(CreateTicketEl("LOCATION", item.location));
+    cardContainerEl.appendChild(
+      CreateTicketEl("LOCATION", item.location, hideSubheader)
+    );
 
-    // Create a ticket Btn and append
+    //4.  Create a ticket Btn and append
     const ticketBtn = document.createElement("button");
     ticketBtn.classList.add("tickets__btn");
     ticketBtn.innerText = "BUY TICKETS";
@@ -84,29 +100,8 @@ const appendToParentContainer = () => {
     cardContainerEl.appendChild(ticketBtn);
 
     ticketParentContainer.appendChild(cardContainerEl);
-
-    // if (hideSubheader != index[0]) {
-    //   pSubheaderEL.classList.add("tickets__subheader--hidden");
-    // }
-
-    // Create a ticket Btn and append
-    // const ticketBtn = document.createElement("button");
-    // ticketBtn.classList.add("tickets__btn");
-    // ticketBtn.innerText = "BUY TICKETS";
-
-    // ticketParentContainer.appendChild(ticketBtn);
-
-    // if (
-    //   ticketObject.name !== item.name[0] &&
-    //   ticketObject.date !== item.date[0] &&
-    //   ticketObject.location !== item.location
-    // ) {
-    // }
   });
 
   return ticketParentContainer;
 };
 appendToParentContainer();
-//  6. run it through for forEach
-
-// console.log(appendToParentContainer());
