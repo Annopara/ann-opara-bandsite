@@ -54,22 +54,10 @@ const CreateTicketEl = (subheader, text, hideSubheader) => {
   divContainerEl.appendChild(pSubheaderEL);
   divContainerEl.appendChild(pTicketTextEl);
 
-  //2.  Event Listener on Container
-  divContainerEl.addEventListener("click", () => {
-    const activeTicketEls = document.querySelectorAll(
-      ".teams__team-row--active"
-    );
-    activeTicketEls.forEach((team) => {
-      team.classList.remove("teams__team-row--active");
-    });
-
-    divContainerEl.classList.add("teams__team-row--active");
-  });
-
   return divContainerEl;
 };
 
-// 3. Appending to the parent container
+// 2. Appending to the parent container
 
 const appendToParentContainer = () => {
   const ticketParentContainer = document.querySelector(".tickets");
@@ -79,6 +67,19 @@ const appendToParentContainer = () => {
     // Ticket container for card
     const cardContainerEl = document.createElement("div");
     cardContainerEl.classList.add("tickets__container");
+
+    //3.  Event Listener on Container
+    cardContainerEl.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const activeTicketEls = document.querySelectorAll(
+        ".tickets__container--active"
+      );
+      activeTicketEls.forEach((team) => {
+        team.classList.remove("tickets__container--active");
+      });
+
+      cardContainerEl.classList.add("tickets__container--active");
+    });
 
     cardContainerEl.appendChild(
       CreateTicketEl("DATE", item.date, hideSubheader)

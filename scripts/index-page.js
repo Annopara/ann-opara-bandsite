@@ -24,7 +24,7 @@ const userComments = [
 // 1. Bring in post section
 const userCommentParent = document.querySelector(".post");
 
-//  2. function form\
+//  2. function form
 const createCommentEl = (item, container) => {
   // 3.  Create img div
   const imgDivEl = document.createElement("div");

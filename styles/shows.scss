@@ -2,13 +2,8 @@
 @use "../styles/partials/mixins" as *;
 
 // HERO SECTION
-
 .shows {
-  height: 39vh;
-
-  @include tablet {
-    height: 50vh;
-  }
+  height: fit-content;
 
   &__desktop {
     @include desktop {
@@ -20,32 +15,38 @@
   &__background {
     position: relative;
     background: linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)),
-      url("../assets/Images/Mohan-muruge.jpg");
+      url("../assets/Images/hero-shows.jpg");
     height: 100%;
     width: 100%;
     display: flex;
-    flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     background-size: cover;
     background-position: center;
 
+    @include tablet {
+      height: fit-content;
+    }
+
     @include desktop {
       margin: 0 auto;
+      height: 60vh;
     }
   }
 
   &__subheader {
     color: $bandsite-white;
-    padding: 0 1rem;
-    margin: 5rem 0;
+    padding: 1rem;
+    font-weight: 600;
+    font-size: 1rem;
 
     @include tablet {
-      padding: 0 36px;
+      padding: 2rem 2.25rem;
+      font-size: 1.5rem;
     }
 
     @include desktop {
-      padding: 0 1rem;
+      padding: 1.5rem 1rem 1rem 1rem;
     }
   }
 
@@ -56,22 +57,46 @@
     font-size: $h1-mobile;
     font-weight: 700;
     width: 65%;
+    margin: 0.5rem 0 1.5rem 0;
 
     @include tablet {
       font-size: $h1-desktop;
       padding: 0 2.25rem;
       letter-spacing: 1.25px;
       width: 85%;
+      line-height: 5rem;
     }
 
     @include desktop {
-      padding: 0 1rem;
+      padding: 0 0.5rem;
+      width: 62%;
+    }
+  }
+
+  &__video {
+    margin: 0 1rem;
+    border-radius: 4px;
+
+    @include tablet {
+      padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+    }
+
+    @include desktop {
+      padding-left: 0;
+    }
+  }
+
+  &__link {
+    width: 80%;
+
+    @include tablet {
+      width: 100%;
     }
   }
 }
 
 .tickets {
-  padding: 3rem 0;
+  padding: 1rem 0;
 
   @include tablet {
     padding: 3rem;
@@ -86,24 +111,29 @@
   &__header {
     padding: 1rem;
 
-    // @include tablet {
-    //   padding: 1rem 0;
-    // }
+    @include tablet {
+      padding: 2rem 0;
+    }
+
+    @include desktop {
+      padding: 2rem 1.5rem;
+    }
   }
 
   &__container {
     display: flex;
     flex-direction: column;
     padding: 1rem 0;
-    border-bottom: 1px solid gray;
-
-    &:hover {
-      background-color: lightgray;
-    }
+    border-bottom: 1px solid $bandsite-mercury;
 
     &--active {
-      background-color: gray;
-      padding: 1rem;
+      background-color: $bandsite-mercury;
+      padding: 1.5rem 1.125rem;
+      border-radius: 4px;
+    }
+
+    &:hover {
+      background-color: $bandsite-alabaster;
     }
 
     @include tablet {
@@ -111,20 +141,28 @@
       justify-content: space-between;
       align-items: center;
     }
+
+    @include desktop {
+      padding: 1rem;
+    }
   }
 
   &__card {
     padding: 0.7rem 1rem;
 
-    // @include tablet {
-    //   padding: 0.7rem 0;
-    // }
+    @include tablet {
+      padding: 0;
+    }
+
+    @include desktop {
+      padding: 0.7rem 0.5rem;
+    }
   }
 
   &__subheader {
-    font-size: 14px;
+    font-size: 0.975rem;
     font-weight: 700;
-    color: rgb(183, 180, 180);
+    color: $bandsite-mercury;
     padding-bottom: 0.4rem;
 
     @include tablet {
@@ -146,12 +184,15 @@
       font-size: 1rem;
       text-align: left;
     }
+
+    &:nth-of-type(1) {
+      font-weight: 600;
+    }
   }
 
   &__btn {
     margin: 0.7rem 1rem;
     padding: 1rem;
-    // width: 100%;
     text-align: center;
     font-weight: 700;
     border-radius: 5px;
@@ -166,7 +207,6 @@
       padding: 0.6rem;
       width: 25%;
       margin-top: auto;
-      //    white-space: nowrap;
     }
   }
 }
