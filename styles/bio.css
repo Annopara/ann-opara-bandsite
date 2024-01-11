@@ -427,6 +427,9 @@
 .post__right {
   width: 80%;
 }
+.post__title {
+  font-size: 14px;
+}
 .post__date {
   font-size: 0.813rem;
 }

@@ -1,4 +1,6 @@
-// // You must have an array in JavaScript with 3 default comment objects to start. Comments must have a name, a timestamp, and the comment text.
+import { newBandSiteApi } from "./band-site-api.js";
+
+console.log(newBandSiteApi);
 
 const userComments = [
   {
@@ -25,50 +27,200 @@ const userComments = [
 const userCommentParent = document.querySelector(".post");
 
 //  2. function form
+//  const createCommentEl =  (item, container) => {
+
+//   // 3.  Create img div
+//   const imgDivEl = document.createElement("div");
+//   imgDivEl.classList.add("post__img");
+
+//   // 4. Create img div-container
+//   const imgContainerEl = document.createElement("div");
+//   imgContainerEl.classList.add("post__img-div");
+//   imgContainerEl.appendChild(imgDivEl);
+
+//   // 5. Heading 3 Element
+//   const h3El = document.createElement("h3");
+//   h3El.classList.add("post__title");
+//   h3El.innerText = item.userName;
+
+//   // 6. P Element for Date
+//   const paragraphEl = document.createElement("p");
+//   paragraphEl.classList.add("post__date");
+//   paragraphEl.innerText = item.date;
+
+//   //  7. create the comment  p
+//   const userPostEl = document.createElement("p");
+//   userPostEl.classList.add("post__text");
+//   userPostEl.innerText = item.userComment;
+
+//   //   8. Create Div for post top flex
+//   const divPostTitleEL = document.createElement("div");
+//   divPostTitleEL.classList.add("post__top");
+//   divPostTitleEL.appendChild(h3El);
+//   divPostTitleEL.appendChild(paragraphEl);
+
+//   // 9.  Post right container
+//   const sectionContainer = document.createElement("section");
+//   sectionContainer.classList.add("post__right");
+//   sectionContainer.appendChild(divPostTitleEL);
+//   sectionContainer.appendChild(userPostEl);
+
+//   // 10. Post Container
+//   const postContainerEl = document.createElement("section");
+//   postContainerEl.classList.add("post__container");
+//   postContainerEl.appendChild(imgContainerEl);
+//   postContainerEl.appendChild(sectionContainer);
+
+//   container.appendChild(postContainerEl);
+// };
+
+// const commentList = (usersArray) => {
+//   userCommentParent.innerHTML = "";
+
+//   usersArray.forEach((item) => {
+//     createCommentEl(item, userCommentParent);
+//   });
+// };
+
+// userComments.forEach((item) => {
+//   createCommentEl(item, userCommentParent);
+// });
+
+// // Current Date function
+// function getCurrentDate() {
+//   const today = new Date();
+//   const month = String(today.getMonth() + 1).padStart(2, "0");
+//   const day = String(today.getDate()).padStart(2, "0");
+//   const year = today.getFullYear();
+//   return `${month}/${day}/${year}`;
+// }
+
+// // // FORM ELEMENT
+// const userForm = document.querySelector(".form__right");
+
+// userForm.addEventListener("submit", (e) => {
+//   e.preventDefault();
+
+//   const newComment = {
+//     userName: e.target.username.value,
+//     date: getCurrentDate(),
+//     userComment: e.target.comment.value,
+//   };
+
+//   userComments.unshift(newComment);
+
+//   e.target.reset();
+
+//   commentList(userComments);
+// });
+
+// SPRINT 3
+
+//  2. function form
+
+//  2. function form
 const createCommentEl = (item, container) => {
+  async function getCommentsfromApi() {
+    try {
+      const response = await newBandSiteApi.getComments();
+      console.log(response);
+
+      response.forEach((item, index) => {
+        const imgDivEl = document.createElement("div");
+        imgDivEl.classList.add("post__img");
+
+        // 4. Create img div-container
+        const imgContainerEl = document.createElement("div");
+        imgContainerEl.classList.add("post__img-div");
+        imgContainerEl.appendChild(imgDivEl);
+
+        // 5. Heading 3 Element
+        const h3El = document.createElement("h3");
+        h3El.classList.add("post__title");
+        h3El.innerText = item.name;
+
+        // 6. P Element for Date
+        const paragraphEl = document.createElement("p");
+        paragraphEl.classList.add("post__date");
+        paragraphEl.innerText = item.id;
+
+        //  7. create the comment  p
+        const userPostEl = document.createElement("p");
+        userPostEl.classList.add("post__text");
+        userPostEl.innerText = item.comment;
+
+        //   8. Create Div for post top flex
+        const divPostTitleEL = document.createElement("div");
+        divPostTitleEL.classList.add("post__top");
+        divPostTitleEL.appendChild(h3El);
+        divPostTitleEL.appendChild(paragraphEl);
+
+        // 9.  Post right container
+        const sectionContainer = document.createElement("section");
+        sectionContainer.classList.add("post__right");
+        sectionContainer.appendChild(divPostTitleEL);
+        sectionContainer.appendChild(userPostEl);
+
+        // 10. Post Container
+        const postContainerEl = document.createElement("section");
+        postContainerEl.classList.add("post__container");
+        postContainerEl.appendChild(imgContainerEl);
+        postContainerEl.appendChild(sectionContainer);
+
+        // return postContainerEl;
+
+        container.appendChild(postContainerEl);
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   // 3.  Create img div
-  const imgDivEl = document.createElement("div");
-  imgDivEl.classList.add("post__img");
+  // const imgDivEl = document.createElement("div");
+  // imgDivEl.classList.add("post__img");
 
-  // 4. Create img div-container
-  const imgContainerEl = document.createElement("div");
-  imgContainerEl.classList.add("post__img-div");
-  imgContainerEl.appendChild(imgDivEl);
+  // // 4. Create img div-container
+  // const imgContainerEl = document.createElement("div");
+  // imgContainerEl.classList.add("post__img-div");
+  // imgContainerEl.appendChild(imgDivEl);
 
-  // 5. Heading 3 Element
-  const h3El = document.createElement("h3");
-  h3El.classList.add("post__title");
-  h3El.innerText = item.userName;
+  // // 5. Heading 3 Element
+  // const h3El = document.createElement("h3");
+  // h3El.classList.add("post__title");
+  // // h3El.innerText = item.userName;
 
-  // 6. P Element for Date
-  const paragraphEl = document.createElement("p");
-  paragraphEl.classList.add("post__date");
-  paragraphEl.innerText = item.date;
+  // // 6. P Element for Date
+  // const paragraphEl = document.createElement("p");
+  // paragraphEl.classList.add("post__date");
+  // // paragraphEl.innerText = item.date;
 
-  //  7. create the comment  p
-  const userPostEl = document.createElement("p");
-  userPostEl.classList.add("post__text");
-  userPostEl.innerText = item.userComment;
+  // //  7. create the comment  p
+  // const userPostEl = document.createElement("p");
+  // userPostEl.classList.add("post__text");
+  // // userPostEl.innerText = item.userComment;
 
-  //   8. Create Div for post top flex
-  const divPostTitleEL = document.createElement("div");
-  divPostTitleEL.classList.add("post__top");
-  divPostTitleEL.appendChild(h3El);
-  divPostTitleEL.appendChild(paragraphEl);
+  // //   8. Create Div for post top flex
+  // const divPostTitleEL = document.createElement("div");
+  // divPostTitleEL.classList.add("post__top");
+  // divPostTitleEL.appendChild(h3El);
+  // divPostTitleEL.appendChild(paragraphEl);
 
-  // 9.  Post right container
-  const sectionContainer = document.createElement("section");
-  sectionContainer.classList.add("post__right");
-  sectionContainer.appendChild(divPostTitleEL);
-  sectionContainer.appendChild(userPostEl);
+  // // 9.  Post right container
+  // const sectionContainer = document.createElement("section");
+  // sectionContainer.classList.add("post__right");
+  // sectionContainer.appendChild(divPostTitleEL);
+  // sectionContainer.appendChild(userPostEl);
 
-  // 10. Post Container
-  const postContainerEl = document.createElement("section");
-  postContainerEl.classList.add("post__container");
-  postContainerEl.appendChild(imgContainerEl);
-  postContainerEl.appendChild(sectionContainer);
+  // // 10. Post Container
+  // const postContainerEl = document.createElement("section");
+  // postContainerEl.classList.add("post__container");
+  // postContainerEl.appendChild(imgContainerEl);
+  // postContainerEl.appendChild(sectionContainer);
 
-  container.appendChild(postContainerEl);
+  // container.appendChild(postContainerEl);
+
+  return getCommentsfromApi();
 };
 
 const commentList = (usersArray) => {
@@ -92,7 +244,7 @@ function getCurrentDate() {
   return `${month}/${day}/${year}`;
 }
 
-// FORM ELEMENT
+// // FORM ELEMENT
 const userForm = document.querySelector(".form__right");
 
 userForm.addEventListener("submit", (e) => {

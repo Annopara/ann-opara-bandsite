@@ -1,4 +1,4 @@
-const key = "dd540e27-a15c-4649-bd3f-34c7db5d8d11";
+const key = "?api_key=dd540e27-a15c-4649-bd3f-34c7db5d8d11";
 
 class BandSiteApi {
   constructor(apiKey) {
@@ -9,7 +9,7 @@ class BandSiteApi {
   async postComment(comment) {
     try {
       const commentResponse = await axios.post(
-        `${this.baseUrl} ${this.apiKey}/comments`,
+        `${this.baseUrl} comments ${this.apiKey}`,
         comment
       );
       // return commentResponse
@@ -21,12 +21,11 @@ class BandSiteApi {
 
   async getComments() {
     try {
-      const response = await axios.get(
-        `${this.baseUrl}${this.apiKey}/comments`
-      );
+      const response = await axios.get(`${this.baseUrl}comments${this.apiKey}`);
 
-      const data = response.data;
-      data.sort();
+      // const data = response.data;
+      response.sort();
+      return response;
     } catch (error) {
       console.error(error);
     }
@@ -35,9 +34,10 @@ class BandSiteApi {
   async getShows() {
     try {
       const response = await axios.get(
-        `${this.baseUrl}${this.apiKey}/showdates`
+        `${this.baseUrl}showdates${this.apiKey}`
       );
       const data = response.data;
+      return data;
     } catch (error) {
       console.error(error);
     }
@@ -46,4 +46,4 @@ class BandSiteApi {
 
 const newBandSiteApi = new BandSiteApi(key);
 
-console.log(newBandSiteApi);
+export default newBandSiteApi;
