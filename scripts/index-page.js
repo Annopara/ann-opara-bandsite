@@ -1,6 +1,6 @@
-import { newBandSiteApi } from "./band-site-api.js";
+import newBandSiteApi from "./band-site-api.js";
 
-console.log(newBandSiteApi);
+// console.log(newBandSiteApi.postComment());
 
 const userComments = [
   {
@@ -117,110 +117,50 @@ const userCommentParent = document.querySelector(".post");
 // SPRINT 3
 
 //  2. function form
-
-//  2. function form
-const createCommentEl = (item, container) => {
-  async function getCommentsfromApi() {
-    try {
-      const response = await newBandSiteApi.getComments();
-      console.log(response);
-
-      response.forEach((item, index) => {
-        const imgDivEl = document.createElement("div");
-        imgDivEl.classList.add("post__img");
-
-        // 4. Create img div-container
-        const imgContainerEl = document.createElement("div");
-        imgContainerEl.classList.add("post__img-div");
-        imgContainerEl.appendChild(imgDivEl);
-
-        // 5. Heading 3 Element
-        const h3El = document.createElement("h3");
-        h3El.classList.add("post__title");
-        h3El.innerText = item.name;
-
-        // 6. P Element for Date
-        const paragraphEl = document.createElement("p");
-        paragraphEl.classList.add("post__date");
-        paragraphEl.innerText = item.id;
-
-        //  7. create the comment  p
-        const userPostEl = document.createElement("p");
-        userPostEl.classList.add("post__text");
-        userPostEl.innerText = item.comment;
-
-        //   8. Create Div for post top flex
-        const divPostTitleEL = document.createElement("div");
-        divPostTitleEL.classList.add("post__top");
-        divPostTitleEL.appendChild(h3El);
-        divPostTitleEL.appendChild(paragraphEl);
-
-        // 9.  Post right container
-        const sectionContainer = document.createElement("section");
-        sectionContainer.classList.add("post__right");
-        sectionContainer.appendChild(divPostTitleEL);
-        sectionContainer.appendChild(userPostEl);
-
-        // 10. Post Container
-        const postContainerEl = document.createElement("section");
-        postContainerEl.classList.add("post__container");
-        postContainerEl.appendChild(imgContainerEl);
-        postContainerEl.appendChild(sectionContainer);
-
-        // return postContainerEl;
-
-        container.appendChild(postContainerEl);
-      });
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
+const createCommentEl = (name, date, comment, container) => {
   // 3.  Create img div
-  // const imgDivEl = document.createElement("div");
-  // imgDivEl.classList.add("post__img");
+  const imgDivEl = document.createElement("div");
+  imgDivEl.classList.add("post__img");
 
-  // // 4. Create img div-container
-  // const imgContainerEl = document.createElement("div");
-  // imgContainerEl.classList.add("post__img-div");
-  // imgContainerEl.appendChild(imgDivEl);
+  // 4. Create img div-container
+  const imgContainerEl = document.createElement("div");
+  imgContainerEl.classList.add("post__img-div");
+  imgContainerEl.appendChild(imgDivEl);
 
-  // // 5. Heading 3 Element
-  // const h3El = document.createElement("h3");
-  // h3El.classList.add("post__title");
-  // // h3El.innerText = item.userName;
+  // 5. Heading 3 Element
+  const h3El = document.createElement("h3");
+  h3El.classList.add("post__title");
+  h3El.innerText = name;
 
-  // // 6. P Element for Date
-  // const paragraphEl = document.createElement("p");
-  // paragraphEl.classList.add("post__date");
-  // // paragraphEl.innerText = item.date;
+  // 6. P Element for Date
+  const paragraphEl = document.createElement("p");
+  paragraphEl.classList.add("post__date");
+  paragraphEl.innerText = date;
 
-  // //  7. create the comment  p
-  // const userPostEl = document.createElement("p");
-  // userPostEl.classList.add("post__text");
-  // // userPostEl.innerText = item.userComment;
+  //  7. create the comment  p
+  const userPostEl = document.createElement("p");
+  userPostEl.classList.add("post__text");
+  userPostEl.innerText = comment;
 
-  // //   8. Create Div for post top flex
-  // const divPostTitleEL = document.createElement("div");
-  // divPostTitleEL.classList.add("post__top");
-  // divPostTitleEL.appendChild(h3El);
-  // divPostTitleEL.appendChild(paragraphEl);
+  //   8. Create Div for post top flex
+  const divPostTitleEL = document.createElement("div");
+  divPostTitleEL.classList.add("post__top");
+  divPostTitleEL.appendChild(h3El);
+  divPostTitleEL.appendChild(paragraphEl);
 
-  // // 9.  Post right container
-  // const sectionContainer = document.createElement("section");
-  // sectionContainer.classList.add("post__right");
-  // sectionContainer.appendChild(divPostTitleEL);
-  // sectionContainer.appendChild(userPostEl);
+  // 9.  Post right container
+  const sectionContainer = document.createElement("section");
+  sectionContainer.classList.add("post__right");
+  sectionContainer.appendChild(divPostTitleEL);
+  sectionContainer.appendChild(userPostEl);
 
-  // // 10. Post Container
-  // const postContainerEl = document.createElement("section");
-  // postContainerEl.classList.add("post__container");
-  // postContainerEl.appendChild(imgContainerEl);
-  // postContainerEl.appendChild(sectionContainer);
+  // 10. Post Container
+  const postContainerEl = document.createElement("section");
+  postContainerEl.classList.add("post__container");
+  postContainerEl.appendChild(imgContainerEl);
+  postContainerEl.appendChild(sectionContainer);
 
-  // container.appendChild(postContainerEl);
-
-  return getCommentsfromApi();
+  container.appendChild(postContainerEl);
 };
 
 const commentList = (usersArray) => {
@@ -231,9 +171,30 @@ const commentList = (usersArray) => {
   });
 };
 
-userComments.forEach((item) => {
-  createCommentEl(item, userCommentParent);
-});
+async function userCommentAPI() {
+  try {
+    const response = await newBandSiteApi.getComments();
+    response.forEach((item) => {
+      const timestamp = item.timestamp;
+      const newTimestamp = new Date(timestamp);
+
+      const data = createCommentEl(
+        item.name,
+        newTimestamp.toDateString(),
+        item.comment,
+        userCommentParent
+      );
+
+      return data;
+    });
+  } catch (error) {
+    console.error(error);
+  }
+}
+userCommentAPI();
+// userComments.forEach((item) => {
+//   createCommentEl(item, userCommentParent);
+// });
 
 // Current Date function
 function getCurrentDate() {
@@ -247,18 +208,51 @@ function getCurrentDate() {
 // // FORM ELEMENT
 const userForm = document.querySelector(".form__right");
 
-userForm.addEventListener("submit", (e) => {
+userForm.addEventListener("submit", async (e) => {
   e.preventDefault();
+  // const apiComment = async () => {
+  try {
+    const newComment = {
+      name: e.target.username.value,
+      // date: getCurrentDate(),
+      comment: e.target.comment.value,
+    };
+    console.log(newComment);
 
-  const newComment = {
-    userName: e.target.username.value,
-    date: getCurrentDate(),
-    userComment: e.target.comment.value,
-  };
-
-  userComments.unshift(newComment);
-
-  e.target.reset();
-
-  commentList(userComments);
+    const response = await newBandSiteApi.postComment(newComment);
+    console.log(response);
+    const newPost = response.data;
+    const allPosts = await newBandSiteApi.getComments();
+    console.log(allPosts);
+    // allPosts.data.push(newPost);
+    commentList(allPosts);
+  } catch (error) {}
 });
+
+// const newComment = {
+//   userName: e.target.username.value,
+//   date: getCurrentDate(),
+//   userComment: e.target.comment.value,
+// };
+
+// return apiComment();
+// userComments.unshift(newComment);
+
+// e.target.reset();
+
+// commentList(userComments);
+// });
+
+// (async() => {
+//   const newPostData = {
+//     title: 'Patrick is cool!',
+//     body: 'Patrick is Soo cool, I wish I was Patrick!',
+//     userId: 7,
+//   }
+//   const url = "https://jsonplaceholder.typicode.com/posts";
+//   const response = await axios.post(url, newPostData);
+//   const newPost = response.data;
+//   const allPosts = await axios.get(url);
+//   allPosts.data.push(newPost);
+//   console.log(allPosts.data);
+// })()
