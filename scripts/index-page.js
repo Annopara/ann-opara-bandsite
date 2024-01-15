@@ -1,7 +1,5 @@
 import newBandSiteApi from "./band-site-api.js";
 
-// console.log(newBandSiteApi.postComment());
-
 const userComments = [
   {
     userName: "Connor Walton",
@@ -163,14 +161,6 @@ const createCommentEl = (name, date, comment, container) => {
   container.appendChild(postContainerEl);
 };
 
-const commentList = (usersArray) => {
-  userCommentParent.innerHTML = "";
-
-  usersArray.forEach((item) => {
-    createCommentEl(item, userCommentParent);
-  });
-};
-
 async function userCommentAPI() {
   try {
     const response = await newBandSiteApi.getComments();
@@ -184,64 +174,45 @@ async function userCommentAPI() {
         item.comment,
         userCommentParent
       );
-
       return data;
     });
   } catch (error) {
     console.error(error);
   }
 }
-userCommentAPI();
-// userComments.forEach((item) => {
-//   createCommentEl(item, userCommentParent);
-// });
 
-// Current Date function
-function getCurrentDate() {
-  const today = new Date();
-  const month = String(today.getMonth() + 1).padStart(2, "0");
-  const day = String(today.getDate()).padStart(2, "0");
-  const year = today.getFullYear();
-  return `${month}/${day}/${year}`;
-}
+const commentList = (usersArray) => {
+  userCommentParent.innerHTML = "";
 
-// // FORM ELEMENT
+  usersArray.forEach((item) => {
+    createCommentEl(item, userCommentParent);
+  });
+};
+
 const userForm = document.querySelector(".form__right");
 
 userForm.addEventListener("submit", async (e) => {
   e.preventDefault();
-  // const apiComment = async () => {
   try {
     const newComment = {
       name: e.target.username.value,
       // date: getCurrentDate(),
       comment: e.target.comment.value,
     };
-    console.log(newComment);
 
     const response = await newBandSiteApi.postComment(newComment);
-    console.log(response);
-    const newPost = response.data;
-    const allPosts = await newBandSiteApi.getComments();
+    const allPosts = await userCommentAPI();
+
     console.log(allPosts);
-    // allPosts.data.push(newPost);
+    allPosts.unshift(response.data);
+
+    e.target.reset();
+
     commentList(allPosts);
   } catch (error) {}
 });
 
-// const newComment = {
-//   userName: e.target.username.value,
-//   date: getCurrentDate(),
-//   userComment: e.target.comment.value,
-// };
-
-// return apiComment();
-// userComments.unshift(newComment);
-
-// e.target.reset();
-
-// commentList(userComments);
-// });
+userCommentAPI();
 
 // (async() => {
 //   const newPostData = {
