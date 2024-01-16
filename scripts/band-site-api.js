@@ -9,8 +9,6 @@ class BandSiteApi {
   async postComment(comment) {
     try {
       const url = `${this.baseUrl}comments${this.apiKey}`;
-      console.log(comment);
-      console.log(url);
       const commentResponse = await axios.post(url, comment);
       const data = commentResponse.data;
       return data;
@@ -24,7 +22,9 @@ class BandSiteApi {
       const response = await axios.get(`${this.baseUrl}comments${this.apiKey}`);
 
       const data = response.data;
-      data.sort();
+      data.sort((a, b) => {
+        return b.timestamp - a.timestamp;
+      });
       return data;
     } catch (error) {
       console.error(error);
@@ -36,6 +36,20 @@ class BandSiteApi {
       const response = await axios.get(
         `${this.baseUrl}showdates${this.apiKey}`
       );
+      const data = response.data;
+      return data;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async deleteComment(commentId) {
+    try {
+      const response = await axios.delete(
+        `${this.baseUrl}comments/${commentId}/${this.apiKey}`,
+        { method: "delete" }
+      );
+
       const data = response.data;
       return data;
     } catch (error) {
